@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     />
     <!-- Custom style -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <!-- Vue -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- Axios -->
@@ -28,21 +28,47 @@
       <!-- Header -->
       <header class="d-flex align-items-center">
         <div class="container">
-          <img class="logo" src="assets/img/spotify-logo.png" alt="">
+          <img class="logo" src="assets/img/spotify-logo.png" alt="" />
         </div>
       </header>
       <!-- /Header -->
       <!-- Main -->
       <main class="p-4">
+        <!-- Modal -->
+        <div class="modal align-items-center" :class="modalVis ? 'd-flex' : ''">
+          <div
+            class="modal-content mx-auto text-light d-flex flex-column justify-content-center align-items-center text-center"
+          >
+            <!-- Immagine disco -->
+            <img class="cover" :src="discsArr[activeDisc].poster" alt="" />
+            <!-- Info disco -->
+            <div class="disc-info mt-3 d-flex flex-column gap-1 text-center">
+              <h4 class="disc-title">{{ discsArr[activeDisc].title }}</h4>
+              <small>{{ discsArr[activeDisc].author }}</small>
+              <strong class="disc-year">{{ discsArr[activeDisc].year }}</strong>
+              <div class="dismiss" @click="dismissModal">x</div>
+            </div>
+          </div>
+        </div>
+        <!-- /Modal -->
         <div class="container h-80">
           <div class="row gy-3">
             <!-- Disco -->
-            <div class="col-4 disc" v-for="(disc, index) in discsArr" :key="index">
-              <div class="card h-100 d-flex flex-column justify-content-center align-items-center">
+            <div
+              class="col-4 disc"
+              v-for="(disc, index) in discsArr"
+              :key="index"
+            >
+              <div
+                class="card h-100 d-flex flex-column justify-content-center align-items-center"
+                @click="showModal(index)"
+              >
                 <!-- Immagine disco -->
-                <img class="cover" :src="disc.poster" alt="">
+                <img class="cover" :src="disc.poster" alt="" />
                 <!-- Info disco -->
-                <div class="disc-info mt-3 d-flex flex-column gap-1 text-center">
+                <div
+                  class="disc-info mt-3 d-flex flex-column gap-1 text-center"
+                >
                   <h4 class="disc-title">{{ disc.title }}</h4>
                   <small>{{ disc.author }}</small>
                   <strong class="disc-year">{{ disc.year }}</strong>

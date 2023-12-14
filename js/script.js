@@ -5,10 +5,18 @@ createApp({
         return{
             discsArr: [],
             apiURL: "server.php",
+            modalVis: false,
+            activeDisc: 0,
         };
     },
     methods: {
-
+        showModal(clickedDisc){
+            this.modalVis = true;
+            this.activeDisc = clickedDisc
+        },
+        dismissModal(){
+            this.modalVis = false;
+        }
     },
     created() {
         axios
