@@ -1,0 +1,46 @@
+/* CUSTOM */
+:root {
+  /* Colors */
+  --main-color: #06131f;
+  --bg-color: #1d2d3c;
+  --card-color: #112030;
+  /* Sizes */
+  --header-height: 100px;
+}
+
+/* HEADER */
+
+header {
+  height: var(--header-height);
+  background-color: var(--main-color);
+}
+
+.logo {
+  max-width: 80px;
+  border-radius: 50%;
+}
+
+/* MAIN */
+main {
+  height: calc(100vh - var(--header-height));
+  background-color: var(--bg-color);
+}
+
+.disc {
+    height: 350px;
+}
+
+.card {
+    width: 300px;
+    background-color: var(--card-color);
+    color: white;
+}
+
+.cover {
+    height: 180px;
+}
+
+.disc-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
